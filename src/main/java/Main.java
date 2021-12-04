@@ -44,7 +44,10 @@ public class Main {
 //        }
 //
 //        System.out.println(MyAtomicInteger.counter);
-        MySemaphore.createSemaphore();
+//        MySemaphore.createSemaphore();
+//        MyExecutor.createSingleThreadExecutor();
+        MyExecutor.createFutureFixedThreadExecutor();
+//        MyExecutor.createScheduledThreadExecutor();
     }
 
 }

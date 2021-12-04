@@ -2,4 +2,19 @@
 - Java provides its own multi-threading framework, it's called `Executor Framework`
 - With the help of this framework we can manage worker threads more efficiently because of thread pools
 - Using thread pools makes multi-threading efficient.
+- Why use this framework and thread pools?:
+  - It handles everything, schedule and execute the submitted tasks
+  - creating and managing threads is expensive
+  - adding a new thread for each process leads to the creation of a large number of threads
+  - these threads need memory and the CPU will spend too much time switching context when the threads are swapped
+  - Thread pools can reuse threads in an extremely efficient manner by keeping the threads alive and reusing them(thread pools are usually queue)
+- There are several types of executors:
+  - `SingleThreadExecutor` - this executor has a single thread, so we can execute processes in a sequential manner.
+    - Every process is executed by a new thread.
+  - `FixedThreadPool(n)` - this is how we can create a thread pool with n threads. Usually n is the number of cores in the CPU
+    - if there are more tasks than n then these tasks are store with a `LinkedBlockingQueue` data structure.
+  - `CachedThreadPool` - The number of threads is not bounded, if all threads are busy executing some tasks and a new task comes, the pool will create and add a new thread to the executor
+    - If a thread remains idle for 60 secs then it is removed
+    - it is used for short parallel tasks.
+  - `ScheduledExecutor` - We can execute a given operation at regular intervals or we can use this executor if we wish to delay a certain task. 
 ---
