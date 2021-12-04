@@ -1,0 +1,11 @@
+## Semaphores
+- Invented by Dijkstra in 1962
+- Semaphores are simple variables(or abstract data types) that are used for controlling access to a common resource
+- It is an important concept in Operating Systems as well.
+- It is a record of how many units of a particular resource are available.
+- Counting Semaphores - allows an arbitrary resource count.
+- Binary Semaphores - semaphores that are restricted to the values `0` and `1`
+- Tracks only how many resources are free, it does not keep track of which of the resources are free.
+- The semaphore count may serve as a useful trigger for a number of different actions(web servers)
+- Producer-consumer problem can be solved and implemented with the help of semaphores(Dijkstra's approach).
+---

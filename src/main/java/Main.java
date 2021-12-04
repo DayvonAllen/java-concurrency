@@ -1,3 +1,4 @@
+import sync.MyAtomicInteger;
 import sync.MyReentrantLock;
 import sync.Processor;
 import sync.WaitAndNotify;
@@ -11,26 +12,41 @@ public class Main {
 //         daemonThreadsExample();
 //        synchronizedThreadsExample();
 //        WaitAndNotify waitAndNotify = new WaitAndNotify();
-        MyReentrantLock processor = new MyReentrantLock();
+//        MyReentrantLock processor = new MyReentrantLock();
+//
+//        Thread t1 = new Thread(() -> {
+//            try {
+//                processor.produce();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//
+//        Thread t2 = new Thread(() -> {
+//            try {
+//                processor.consume();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//
+//        t1.start();
+//        t2.start();
 
-        Thread t1 = new Thread(() -> {
-            try {
-                processor.produce();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+        Thread t1 =  new Thread(MyAtomicInteger::increment, "first-child-thread");
+        Thread t2 = new Thread(MyAtomicInteger::increment, "second-child-thread");
 
-        Thread t2 = new Thread(() -> {
-            try {
-                processor.consume();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+        try {
+            t1.start();
+            t2.start();
 
-        t1.start();
-        t2.start();
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(MyAtomicInteger.counter);
     }
 
 }
