@@ -1,7 +1,4 @@
-import sync.MyAtomicInteger;
-import sync.MyReentrantLock;
-import sync.Processor;
-import sync.WaitAndNotify;
+import sync.*;
 
 import static sync.NaiveSync.synchronizedThreadsExample;
 import static thread.MyThread.daemonThreadsExample;
@@ -33,20 +30,21 @@ public class Main {
 //        t1.start();
 //        t2.start();
 
-        Thread t1 =  new Thread(MyAtomicInteger::increment, "first-child-thread");
-        Thread t2 = new Thread(MyAtomicInteger::increment, "second-child-thread");
-
-        try {
-            t1.start();
-            t2.start();
-
-            t1.join();
-            t2.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(MyAtomicInteger.counter);
+//        Thread t1 =  new Thread(MyAtomicInteger::increment, "first-child-thread");
+//        Thread t2 = new Thread(MyAtomicInteger::increment, "second-child-thread");
+//
+//        try {
+//            t1.start();
+//            t2.start();
+//
+//            t1.join();
+//            t2.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.println(MyAtomicInteger.counter);
+        MySemaphore.createSemaphore();
     }
 
 }

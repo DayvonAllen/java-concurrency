@@ -8,4 +8,9 @@
 - Tracks only how many resources are free, it does not keep track of which of the resources are free.
 - The semaphore count may serve as a useful trigger for a number of different actions(web servers)
 - Producer-consumer problem can be solved and implemented with the help of semaphores(Dijkstra's approach).
+- It is used to control access to a shared resource that uses a counter variable.
+- `new Semaphore(<num or permits>, <fairness>)`
+- Semaphore is a signalling mechanism
+- Threads and processes perform `wait()` and `notify()` operations to indicate whether they are acquiring or releasing the resource.
+- They allow multiple program threads to access the finite instance of resources(not just a single resource)
 ---
