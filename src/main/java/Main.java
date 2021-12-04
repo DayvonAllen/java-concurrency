@@ -48,7 +48,8 @@ public class Main {
 //        MyExecutor.createSingleThreadExecutor();
 //        MyExecutor.createFutureFixedThreadExecutor();
 //        MyExecutor.createScheduledThreadExecutor();
-        MyCountDownLatch.createCountDownLatch();
+//        MyCountDownLatch.createCountDownLatch();
+        MyCyclicBarrier.createCyclicBarrier();
     }
 
 }
