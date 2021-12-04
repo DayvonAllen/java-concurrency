@@ -1,0 +1,12 @@
+## Thread Safe Collections
+- `Blocking Queues`
+  - `ArrayBlockingQueue` - bounded, has a maximum
+- `Delay Queues` - unbounded, items expire after a delay(it's sorted) and then we can access them
+- `PriorityBlockingQueues`
+- `ConcurrentMap`
+  - `ConcurrentHashMap`
+- `CopyOnWriteArrays` - efficient implementation of the synchronized ArrayList.
+  - Updates to the list are O(n) because a copy needs to be made.
+  - there is no locking when threads are reading
+- `Exchanger` - allows two threads to exchange objects
+---
