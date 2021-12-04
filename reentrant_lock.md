@@ -1,0 +1,14 @@
+## Reentrant Lock
+- It has the same behavior as the "synchronized approach"
+- It also has additional features
+- `new ReentrantLock(<fairness>);`
+  - If the fairness parameter is set to be `True` then the longest waiting thread will get the lock
+  - If the fairness parameter is set to be `False` then there is no access order
+  - `IMPORTANT` - a good approach is to use `try-catch-finally` blocks when doing the critical section and call `unlock()` in the `finally` block.
+  - Fairness parameter is set to `True` by default.
+- Features: 
+  - We can make a lock fair to prevent thread starvation(Synchronized blocks are unfair by default)
+  - We can check whether the given lock is held or not
+  - we can get the list of threads waiting for the given lock with reentrant locks
+  - Synchronized blocks are nicer, we do not need the `try-catch-finally` block
+---

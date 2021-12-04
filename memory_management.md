@@ -66,6 +66,14 @@
 ```
 - Re-entrant synchronization:
 ``` 
+So a thread cannot acquire a lock owned by another thread. But a given thread can acquire a lock that it already owns. 
+Allowing a thread to acquire the same lock more than once is called re-entrant synchronization, 
+and this is exactly what is happening in Python when using RLocks- the same thread may acquire the lock more than once.
+
+For example: let's consider recursive method calls. 
+If a given thread calls a recursive and synchronized method several times then it is fine (note that in this case the same thread "enters" the synchronized block several times).
+There will be no deadlock because of re-entrant synchronization.
+
  
 ```
 ---
