@@ -27,7 +27,7 @@ class BarrierWorker implements Runnable {
             e.printStackTrace();
         }
 
-        System.out.println("All threads are done");
+        System.out.println("thread is done");
     }
 
     @Override
@@ -39,7 +39,12 @@ class BarrierWorker implements Runnable {
 public class MyCyclicBarrier {
 
     public static  void createCyclicBarrier() {
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(5, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("All threads are done!");
+            }
+        });
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         for(int i = 0; i < 5; i++){
